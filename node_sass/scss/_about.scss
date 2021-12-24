@@ -1,0 +1,369 @@
+@mixin propiedadTarjetas{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    -webkit-backface-visibility: hidden;
+     backface-visibility: hidden;
+}
+.card-info{
+    margin: 5% auto;
+    .card-body{
+        display: flex;
+        flex-direction: column;
+        color: $bg_clarito;
+        .title-card{
+            @include titulos;
+            font-size: 3rem;
+            text-align: center;
+            font-weight: 600;
+        }
+        .text-card{
+            @include texto;
+            font-size: 1.2rem;
+            text-align: justify;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+        .btn-danger{
+            background-color: $bg_azul;
+            border-color: $bg_azul;
+            font-weight: 400;
+        }
+        .text-btn{
+            margin-top: 60px;
+            a{
+                text-decoration: none;
+                color: $bg_clarito;
+                font-size: 1.3rem;
+            }
+        }
+    }
+}
+
+.game{
+    margin: 2% 0px;
+    background-color: inherit;
+    .content-game{
+        border-radius:0% 100% 50% 50% / 0% 0% 100% 100%;
+        background-color: inherit;
+        padding-bottom: 75px;
+        .title-game{
+            @include titulos;
+            font-size: 3.3rem;
+            font-weight: 800;
+            margin: 10px auto;
+            text-align: center;
+        }
+    }
+    .wrap{
+        width: 1000px;
+        margin: 25px auto;
+        padding-bottom: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        .tarjeta-wrap{
+            margin: 1.8rem;
+            -webkit-perspective: 800;
+            perspective: 800;
+            .tarjeta{
+                width: 16rem;
+                height: 18rem;
+                position: relative;
+                transform-style: preserve-3d;
+                transition: .7s ease;
+                -webkit-box-shadow: 0px 10px 15px -5px rgba(0,0,0,.65);
+                -moz-box-shadow: 0px 10px 15px -5px rgba(0,0,0,.65);
+                box-shadow: 0px 10px 15px -5px rgba(0,0,0,.65);
+                cursor: pointer;
+                border-radius: 8px;
+                border:none;
+                .adelante{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: $bg_clarito;
+                    border-radius: 8px;
+                    @include propiedadTarjetas;    
+                    i{
+                        font-size: 12rem;
+                        color: $bg_azul;
+                    }
+                }
+                .atras{
+                    transform: rotateY(180deg);
+                    padding: 10px;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    text-align: center;
+                    background-color: $bg_azul;
+                    border-radius: 8px; 
+                    @include propiedadTarjetas;
+                    p{
+                        @include texto;
+                        font-size: 1.5rem;
+                        font-size: bold;
+                        color: $bg_celeste;
+                    }
+                    a{
+                        display: block;
+                        color: $bg_azul;
+                        margin: auto;
+                        margin: 10px;
+                        align-items: center;
+                    }
+                }
+            }  
+            &:hover{
+                .tarjeta{
+                    transform: rotateY(180deg);
+                    border: none;  
+                }
+            }
+        } 
+    }
+}
+.fotos{
+    width: 100%;
+    height: auto;
+    .imagenesProyectos{
+        width: 100%;
+        max-width: 1200px;
+        margin: 5% auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 30px;
+        padding: 40px;
+        .item{
+            background-color: $bg_celeste;
+            cursor: pointer;
+            box-shadow: 0 0 5px 0 rgba(0,0,0,.095);
+            transition: all 300ms;
+            border-radius: 8px;
+            position: relative;
+            &::after{
+                content: "";
+                background-color: rgba(179, 229, 252, .1);
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top:0;
+                left: 0;
+                transform: scale(0);
+                transition: all 300ms;
+                opacity: 0;
+                border-radius: 8px;
+            } 
+            &:hover{
+                transform: scale(1.05);
+                &:after{
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+            .item-text{
+                padding: 1em;
+                text-align: justify;
+                h3{
+                    @include titulos;
+                    text-align: left;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                }
+                p{
+                    @include texto;
+                    color: $bg_azul;
+                }
+            }
+            .item-img{
+                width: 100%;
+                display: block;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+            }
+        }  
+    }
+}
+
+@media screen and (min-width:320px) and (max-width:425px){
+    .game{
+        margin: 5% 0px;
+        .content-game{
+            .title-game{
+                font-size: 1.8rem;
+                padding: 0px 20px;
+                font-weight: 800;
+ 
+            }
+        }
+        .wrap{
+            max-width: 300px;
+            margin: 10px auto;
+            .tarjeta-wrap{
+                margin:.5rem;
+                .tarjeta{
+                    width: 8rem;
+                    height: 10rem;
+                    .adelante{
+                        i{
+                            font-size: 6rem;
+                        }
+                    }
+                    .atras{
+                        padding: 6px;
+                        p{
+                            font-size: .8rem;
+                        }
+                        a{
+                            margin: 3px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:425px) and (max-width:768px){
+    .game{
+        margin: 5% 0px;
+        .content-game{
+            .title-game{
+                font-size: 2.3rem;
+                padding: 0px 40px;
+                font-weight: 800;
+            }
+        }
+        .wrap{
+            max-width: 400px;
+            margin: 10px auto;
+            .tarjeta-wrap{
+                margin:.8rem;
+                .tarjeta{
+                    width: 10rem;
+                    height: 12rem;
+                    .adelante{
+                        i{
+                            font-size: 8rem;
+                        }
+                    }
+                    .atras{
+                        padding: 6px;
+                        p{
+                            font-size: 1rem;
+                        }
+                        a{
+                            margin: 3px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width:768px) and (max-width:1200px){
+    .game{
+        margin: 5% 0px;
+        .content-game{
+            .title-game{
+                font-size: 2.6rem;
+                padding: 0px 40px;
+                font-weight: 800;
+            }
+        }
+        .wrap{
+            max-width: 700px;
+            margin: 10px auto;
+            .tarjeta-wrap{
+                margin: 1rem;
+                .tarjeta{
+                    width: 12rem;
+                    height: 14rem;
+                    .adelante{
+                        i{
+                            font-size: 9rem;
+                        }
+                    }
+                    .atras{
+                        padding: 5px;
+                        p{
+                            font-size: 1.2rem;
+                        }
+                        a{
+                            margin: 3px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .container{
+        .card-info{
+            .row{
+                .img-fluid{
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 320px) {
+    .fotos{
+        .imagenesProyectos{
+            grid-template-columns: repeat(1, 1fr);
+            .item{
+                max-width: 400px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:500px){
+    .fotos{
+        .imagenesProyectos{
+            .item{
+                margin: 10px auto;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .fotos{
+        .imagenesProyectos{
+            grid-template-columns: repeat(2, 1fr);
+            .item{
+                .item-img{
+                    max-height: 200px;
+                    overflow: hidden;
+                }   
+            }
+            
+        } 
+    }
+    
+}
+
+@media screen and (min-width: 960px) {
+    .fotos{
+        .imagenesProyectos{
+            grid-template-columns: repeat(3, 1fr);
+            .item{
+                .item-img{
+                    max-height: 230px;
+                    overflow: hidden;
+                }   
+            }
+        }  
+    }
+}
+ 
+
+
+    
+  

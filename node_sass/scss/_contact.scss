@@ -1,0 +1,93 @@
+.formulario{
+    .logo {
+        @include titulos;
+        text-align: center;
+        font-weight: 800;
+        span{
+            color: $bg_clarito;
+        }
+    }
+    .contact-wrapper {
+        box-shadow: 0 0 20px 0 rgba(255, 255, 255, .3);
+        &>*{
+            padding: 1em;
+        }
+        .contact-form {
+            background: $bg_clarito;
+            color: $bg_azul;
+            form {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                p{
+                    margin: 0;
+                    padding: 1em;
+                    label{
+                        display: block;
+                        color: $bg_azul;
+                        font-size: 1rem;
+                    }   
+                }
+                .block {
+                    grid-column: 1 / 3;
+                    margin: 5px
+                }
+                button{
+                    @include contacto;
+                    border: 0;
+                    text-transform: uppercase;
+                    padding: 1em;
+                    margin: 10px;
+                    &:hover , :focus{
+                        background: $bg_azul;
+                        transition: background-color 1s ease-out;
+                        outline: 0;
+                        input{
+                            color: $bg_celeste;
+                        }
+                    }
+                }
+                input , textarea{
+                    @include contacto
+                }
+            }
+        }
+        .contact-info{
+            background: $bg_azul;
+            color: $bg_clarito;
+            h4 , ul{
+                text-align: center;
+                margin: 0 0 1rem 0;
+                list-style: none;
+            }
+            p{
+                @include texto;
+                color: $bg_clarito;
+            }
+        }
+    }
+}
+
+@media(min-width: 700px) {
+    .formulario{
+        padding: 0 4em;
+        margin-top: 2%;
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            &> * {
+            padding: 2em;
+            }
+            .contact-info{
+                h4 , ul , p{
+                    text-align: left;
+                }
+            }
+        }
+    }   
+}
+
+@media (min-width: 1440px){
+    .formulario{
+        margin: 2% 0px;
+    }
+}

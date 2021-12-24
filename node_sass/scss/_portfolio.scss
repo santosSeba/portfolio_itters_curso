@@ -1,0 +1,330 @@
+.title_portfolio{
+  width: 100%;
+  height: auto;
+  color: $bg_azul;
+  background-color: $bg_celeste;
+  padding-bottom: 20px;
+  text-align: center;
+  border-radius:50% 100% 50% 50% / 0% 0% 100% 100%;
+  h1{
+    @include titulos;
+    font-weight: bolder;
+    padding: 20px;
+  }
+}
+.wrapper{
+    max-width: 1080px;
+    margin: 40px auto;
+    padding: 0 20px;
+    position: relative;
+    .center-line{
+      position: absolute;
+      height: 100%;
+      width: 4px;
+      background: $bg_azul;
+      left: 50%;
+      top: 20px;
+      transform: translateX(-50%);
+    .scroll-icon{
+      bottom: 0px;
+      left: 50%;
+      font-size: 25px;
+      transform: translateX(-50%);
+      @include timeline;
+    }
+  }
+  .row{
+    display: flex;
+    section{
+      background: $bg_clarito;
+      border-radius: 5px;
+      width: calc(50% - 40px);
+      padding: 20px;
+      position: relative;
+      &::before{
+        position: absolute;
+        content: "";
+        height: 15px;
+        width: 15px;
+        background: #fff;
+        top: 28px;
+        z-index: 1;
+        transform: rotate(45deg);
+      }
+      .icon{
+        position: absolute;
+        background-color: inherit;
+        height: 40px;
+        width: 40px;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 50%;
+        color: $bg_azul;
+        font-size: 27px;
+        box-shadow: 0 0 0 4px $bg_azul, inset 0 2px 0 rgba(0,0,0,0.08), 0 3px 0 4px rgba(0,0,0,0.05);
+      }
+      .details{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .title{
+          @include titulos;
+          font-size: 22px;
+          font-weight: 600;
+        }
+      }
+      p{
+        margin: 10px 0 17px 0;
+      }
+      .bottom{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        a{
+          text-decoration: none;
+          background: $bg_azul;
+          color: whitesmoke;
+          padding: 7px 15px;
+          border-radius: 5px;
+          font-weight: 400;
+          transition: all 0.3s ease;
+          :hover{
+            transform: scale(0.97);
+          }    
+        }
+      }
+     
+    }
+    
+  }
+  .row-1{
+    justify-content: flex-start;
+    section{
+      .icon{
+        top: 15px;
+        right: -60px;  
+      }
+      &::before{
+        right: -7px;
+      }
+    }
+    
+  }
+  .row-2{
+    justify-content: flex-end;
+    section{
+      .icon{
+        top: 15px;
+        left: -60px;
+      }
+      &::before{
+        left: -7px;
+      }
+    }
+  }
+} 
+
+@media(max-width: 790px){
+  .wrapper{
+    .center-line{
+      left: 40px;
+    } 
+    .row{
+      margin: 30px 0 3px 60px;
+      section{
+        width: 100%;
+        .bottom{
+          a{
+            padding: 10px 5px;
+          }
+        }
+      }
+    }
+    .row-1{
+      section{
+        &::before{
+          left: -7px;
+        }
+        .icon{
+          left: -60px;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 440px){
+  .title_portfolio{
+    padding: 10px;
+    h1{
+      font-size: 2rem;
+
+    }
+  }
+  .wrapper{
+    .center-line{
+      display: none;
+    }
+    .row{
+      margin: 10px;
+      section{
+        &::before{
+          display: none;
+        }
+        .icon{
+          display: none;
+        }
+      }
+    }
+  }
+}
+  
+.skill-bars{
+    padding: 25px 30px;
+    width: 95%;
+    max-width: 1080px;
+    margin: 5% auto;
+    background: $bg_clarito;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+    border-radius: 10px;
+    .bar{
+      margin: 20px 0;
+      &:first-child{
+        margin-top: 0px;
+      }
+      .info{
+        margin-bottom: 5px;
+        span{
+          font-weight: 500;
+          font-size: 17px;
+          opacity: 0;
+          animation: showText 0.5s 1s linear forwards;
+        }
+      }
+      @keyframes showText {
+        100%{
+          opacity: 1;
+        }
+      }
+      .progress-line{
+        height: 10px;
+        width: 100%;
+        background: #f0f0f0;
+        position: relative;
+        transform: scaleX(0);
+        transform-origin: left;
+        border-radius: 10px;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,0.05),
+        0 1px rgba(255,255,255,0.8);
+        animation: animate 1s cubic-bezier(1,0,0.5,1) forwards;
+        @keyframes animate {
+          100%{
+            transform: scaleX(1);
+          }
+        }
+        span{
+          height: 100%;
+          position: absolute;
+          border-radius: 10px;
+          transform: scaleX(0);
+          transform-origin: left;
+          background: $bg_azul;
+          animation: animate 1.2s 1.2s cubic-bezier(1,0,0.5,1) forwards;
+          &::before{
+            position: absolute;
+            content: "";
+            top: -10px;
+            right: 0;
+            height: 0;
+            width: 0;
+            border: 7px solid transparent;
+            border-bottom-width: 0px;
+            border-right-width: 0px;
+            border-top-color: $bg_oscuro;
+            opacity: 0;
+            animation: showText2 0.5s 1.5s linear forwards;
+          }
+          &::after{
+            position: absolute;
+            top: -28px;
+            right: 0;
+            font-weight: 500;
+            background: #000;
+            color: #fff;
+            padding: 1px 8px;
+            font-size: 12px;
+            border-radius: 3px;
+            opacity: 0;
+            animation: showText2 0.5s 1.5s linear forwards;
+          }
+          @keyframes showText2 {
+            100%{
+              opacity: 1;
+            }
+          }
+        }
+      }
+      .html{
+        span{
+          width: 90%;
+          &::after{
+            content: "90%";
+          }
+        }
+      }
+        .css{
+          span{
+            width: 85%;
+            &::after{
+              content: "85%";
+            }
+          }
+        }
+        .sass{
+          span{
+            width: 75%;
+            &::after{
+              content: "75%";
+            }
+          }
+        }
+        .bootstrap{
+          span{
+            width: 85%;
+            &::after{
+              content: "85%";
+            }
+          }
+        }
+        .javascript{
+          span{
+            width: 30%;
+            &::after{
+              content: "30%";
+            }
+          }
+        }
+    }
+  }
+  .projects{
+    text-align: center;
+    .btn-neon{
+      margin: 3% auto;
+      padding: 10px 20px;
+      border-radius: 8px;
+      display: inline-block;
+      background-color: $bg_azul;
+      color:$bg_clarito;
+      border: 2px solid $bg_celeste;
+      font-weight: 500;
+      letter-spacing: 4px;
+      font-size: 24px;
+      text-decoration: none;
+      transition: 0.8s;
+      &:hover{
+        background-color: $bg_celeste;
+        color: $bg_azul;
+        border: 2px solid $bg_celeste;
+      }
+  }
+}
