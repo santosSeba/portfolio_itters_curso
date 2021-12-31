@@ -1,9 +1,19 @@
+body{
+    #particles-js{
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        z-index: -1;
+    }
+}
 .index__contenido{
     color: $bg_oscuro;
     background-color: inherit;
     top: 0;
     left: 0;
     height: 83vh;
+    position: relative;
+    z-index: 99;
     .signo_abierto{
         position: absolute;
         top: 5%;

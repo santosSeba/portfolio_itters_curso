@@ -13,12 +13,21 @@ body {
   width: 100%;
 }
 
+body #particles-js {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+}
+
 .index__contenido {
   color: #010100;
   background-color: inherit;
   top: 0;
   left: 0;
   height: 83vh;
+  position: relative;
+  z-index: 99;
 }
 
 .index__contenido .signo_abierto {
