@@ -26,8 +26,6 @@ body #particles-js {
   top: 0;
   left: 0;
   height: 83vh;
-  position: relative;
-  z-index: 99;
 }
 
 .index__contenido .signo_abierto {
@@ -541,7 +539,7 @@ body #particles-js {
 }
 
 .fotos .imagenesProyectos .item {
-  background-color: #c5e0e6;
+  background-color: #FDB750;
   cursor: pointer;
   -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.095);
           box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.095);
@@ -1165,7 +1163,7 @@ body #particles-js {
 .miServicios {
   width: 100%;
   height: auto;
-  background: #c5e0e6;
+  background: inherit;
 }
 
 .miServicios .tipo-deServicio {
