@@ -343,6 +343,8 @@ body #particles-js {
 
 .card-info {
   margin: 5% auto;
+  background-color: inherit;
+  border: inherit;
 }
 
 .card-info .card-body {
@@ -750,7 +752,7 @@ body #particles-js {
   width: 100%;
   height: auto;
   color: #077391;
-  background-color: #c5e0e6;
+  background-color: inherit;
   padding-bottom: 20px;
   text-align: center;
   border-radius: 50% 100% 50% 50% / 0% 0% 100% 100%;
@@ -1167,7 +1169,7 @@ body #particles-js {
 }
 
 .miServicios .tipo-deServicio {
-  background: #c5e0e6;
+  background: inherit;
   color: #010100;
   width: 100%;
   height: auto;
@@ -1716,7 +1718,7 @@ footer .social-media a {
 }
 
 .navColor {
-  background-color: #077391;
+  background-color: inherit;
 }
 
 .navColor .navbar-brand img {
